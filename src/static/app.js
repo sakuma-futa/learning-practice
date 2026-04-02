@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const email = decodeURIComponent(participantDiv.getAttribute("data-email"));
       if (!confirm(`Unregister ${email} from ${activity}?`)) return;
       try {
-        const response = await fetch(`/activities/${encodeURIComponent(activity)}/unregister?email=${encodeURIComponent(email)}`, {
-          method: "POST"
+        const response = await fetch(`/activities/${encodeURIComponent(activity)}/signup?email=${encodeURIComponent(email)}`, {
+          method: "DELETE"
         });
         const result = await response.json();
         if (response.ok) {
